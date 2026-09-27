@@ -18,7 +18,7 @@ products_db = {
 }
 
 @app.get("/products")
-async def getProduct(category:str|None = None) -> list:
+async def getProduct(category:str|None = None) -> dict:
     filteredList = {}
     if category is not None:
         for id, product in products_db.items():
