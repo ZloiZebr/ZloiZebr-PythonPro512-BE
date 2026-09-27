@@ -1,0 +1,299 @@
+/* Общие настройки и типографика */
+:root {
+  --primary-color: #3498db;       /* Приятный синий */
+  --primary-hover: #2980b9;
+  --bg-color: #f5f7fa;            /* Светло-серый фон страницы */
+  --card-bg: #ffffff;              /* Белый фон карточек */
+  --text-main: #2c3e50;            /* Тёмно-синий текст */
+  --text-muted: #7f8c8d;           /* Серый для второстепенного текста */
+  --border-color: #e0e6ed;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+h1 {
+  color: var(--text-main);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+/* --- Стили для страницы СПИСКА товаров --- */
+.products-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.products-grid {
+  display: grid;
+  /* Адаптивная сетка: карточки сами подстроятся */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.product-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+  border-color: var(--primary-color);
+}
+
+.product-link {
+  display: block;
+  color: var(--text-main);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.product-link:hover {
+  color: var(--primary-color);
+}
+
+.no-products-message {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  border: 1px dashed var(--border-color);
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- Стили для страницы ДЕТАЛЕЙ товара --- */
+.detail-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.detail-card {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-color);
+}
+
+.detail-info p {
+  margin: 12px 0;
+  font-size: 1.1rem;
+}
+
+.detail-info strong {
+  color: var(--primary-color);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 30px;
+  padding: 12px 24px;
+  background-color: var(--border-color);
+  color: var(--text-main);
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+.back-link:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 600px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+}
+/* Контейнер списка товаров */
+.products-container {
+  max-width: 1280px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Сама сетка */
+.products-grid {
+  display: grid;
+  /* Адаптивные колонки: автоматически подстраиваются */
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* Карточка товара */
+.product-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid #eef1f5;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-color: #3498db;
+}
+
+/* Ссылка внутри карточки */
+.product-link {
+  color: #2c3e50;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  min-height: 56px; /* Чтобы заголовки были примерно на одном уровне */
+  display: block;
+}
+
+.product-link:hover {
+  color: #3498db;
+}
+
+/* Сообщение, если товаров нет */
+.no-products-message {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f8f9fb;
+  border-radius: 16px;
+  color: #7f8c8d;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+
+/* Контейнер страницы деталей */
+.detail-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Карточка с информацией о товаре */
+.detail-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eef1f5;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.detail-title {
+  color: #2c3e50;
+  font-size: 2rem;
+  margin: 0 0 24px 0;
+  font-weight: 700;
+}
+
+/* Блок с характеристиками товара */
+.detail-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.detail-info p {
+  margin: 6px 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.detail-info strong {
+  color: #3498db;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.detail-info span {
+  color: #5f6c7d;
+  font-size: 1.05rem;
+}
+
+/* Если описание длинное — ограничиваем высоту и добавляем многоточие */
+.detail-description {
+  grid-column: 1 / -1; /* Растягивается на всю ширину сетки */
+  color: #5f6c7d;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-height: 120px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+}
+
+/* Кнопка «Назад» */
+.back-link {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background-color: #f8f9fb;
+  color: #2c3e50;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.back-link:hover {
+  background-color: #3498db;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.25);
+}
+
+/* Адаптив: на мобильных делаем одну колонку */
+@media (max-width: 768px) {
+  .detail-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .detail-card {
+    padding: 24px;
+  }
+
+  .detail-title {
+    font-size: 1.75rem;
+  }
+}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ product.name }} — Детали товара{% endblock %}
+
+{% block body %}
+  <div class="detail-container">
+    <div class="detail-card">
+      <h1 class="detail-title">{{ product.name }}</h1>
+      <div class="detail-info">
+        <p>
+          <strong>ID</strong>
+          <span>{{ product.id }}</span>
+        </p>
+        <p>
+          <strong>Категория</strong>
+          <span>{{ product.category }}</span>
+        </p>
+        <p>
+          <strong>Цена</strong>
+          <span style="color: #27ae60; font-weight: 700;">
+            {{ product.price }} ₽
+          </span>
+        </p>
+      </div>
+      <a href="/web/products" class="back-link">
+        ← Вернуться к списку товаров
+      </a>
+    </div>
+  </div>
+{% endblock %}
